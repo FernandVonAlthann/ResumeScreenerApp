@@ -22,25 +22,37 @@ It allows you to upload resumes and score them against job descriptions using a 
 
    ```bash
    dotnet restore
-Build the project:
+   
+3. Build the project:
+```bash
 dotnet build
-Run the application:
+```
+
+4. Run the application:
+```bash
 dotnet run
-Access the frontend:
+```
+
+5. Access the frontend:
 Open your browser and go to http://localhost:5292/index.html
-How to Use
+
+**How to Use**
 
 Paste your Resume Text and Job Description into the respective text areas on the page.
 Click Score Resume to send data to the backend API.
 The predicted suitability score will appear below the form.
-Project Structure
+
+
+**Project Structure**
 
 wwwroot/index.html — simple frontend interface to test resume scoring.
 Controllers/ResumeController.cs — backend API controller exposing scoring endpoints.
 MLModel/ResumeScorer.mlmodel — trained ML.NET model file.
 Startup.cs — configures services and static files middleware.
 Program.cs — starts the web host.
-Notes
+
+
+**Notes**
 
 Ensure your ML model is trained and placed correctly in MLModel/.
 The app serves static files from wwwroot/.
