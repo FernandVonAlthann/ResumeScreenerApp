@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Screener</title>
+</head>
+<body>
+  <h1>Resume Screener</h1>
+  <form id="scoreForm">
+    <textarea id="resumeText" placeholder="Paste resume text here" rows="10" cols="50"></textarea><br/>
+    <textarea id="jobDescription" placeholder="Paste job description here" rows="10" cols="50"></textarea><br/>
+    <button type="submit">Score Resume</button>
+  </form>
+  <h2>Score: <span id="scoreResult"></span></h2>
+
+  <script>
+    const form = document.getElementById('scoreForm');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const resumeText = document.getElementById('resumeText').value;
+      const jobDescription = document.getElementById('jobDescription').value;
+
+      const response = await fetch('/api/resume/score', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ ResumeText: resumeText, JobDescription: jobDescription })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('scoreResult').textContent = data.score || data.Score || 'N/A';
+      } else {
+        document.getElementById('scoreResult').textContent = 'Error scoring resume';
+      }
+    });
+  </script>
+</body>
+</html>
