@@ -3,6 +3,7 @@
 ## Overview
 This is an AI-Based Resume Screener built with ASP.NET Core and ML.NET.  
 It allows you to upload resumes and score them against job descriptions using a trained ML model.
+<img width="465" alt="Screenshot 2025-06-26 at 12 57 58 AM" src="https://github.com/user-attachments/assets/04f989f5-4110-4ec0-bf12-41d54d00575f" />
 
 ---
 
